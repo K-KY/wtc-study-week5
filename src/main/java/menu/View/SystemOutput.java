@@ -10,5 +10,8 @@ public class SystemOutput {
     public void printStartMessage() {
         System.out.println(START_MESSAGE);
     }
+    public void printInputMember() {
+        System.out.println(INPUT_MEMBER);
+    }
 
 }
