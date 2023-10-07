@@ -26,7 +26,11 @@ public class InputValidator {
     }
 
     public void validateDislike(String dislike) {
+        if (dislike.equals("")) {
+            return;
+        }
         validateMemberDislike(dislike);
+        validateDislikeLength(dislike);
         findFromMenuList(dislike);
     }
     private void validateMemberDislike(String dislike) {
@@ -43,6 +47,12 @@ public class InputValidator {
         for (int i = 0; i < dislikeList.length; i++) {
             String menu = dislikeList[i].trim();
             menuFinder.findMenu(menu);
+        }
+    }
+
+    private void validateDislikeLength(String dislike) {
+        if (dislike.split("").length > 2) {
+            throw new IllegalArgumentException("[ERROR] 못먹는 메뉴는 최대 2개까지 입력 가능합니다");
         }
     }
 }
