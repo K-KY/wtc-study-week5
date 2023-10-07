@@ -6,6 +6,7 @@ public class InputValidator {
     public void validateMemberName(String input) {
         permittedInputValidator(input);
         nameLengthValidator(input);
+        memberLengthValidator(input);
     }
     private void permittedInputValidator(String input) {
         String str = input.replace(",", "");
@@ -22,6 +23,13 @@ public class InputValidator {
             if (member.length() > 4 || member.length() < 2) {
                 throw new IllegalArgumentException("[ERROR] 코치의 이름은 최소 2글자 최대 4글자 입니다");
             }
+        }
+    }
+
+    private void memberLengthValidator(String input) {
+        String[] memberList = input.split(",");
+        if (memberList.length > 5 || memberList.length < 2) {
+            throw new IllegalArgumentException("[ERROR] 코치는 최소 2명 최대 5명까지 입력 가능합니다.");
         }
     }
 
