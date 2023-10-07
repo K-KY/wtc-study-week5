@@ -7,7 +7,7 @@ import menu.Model.validator.InputValidator;
 import java.util.ArrayList;
 
 public class InputMemberDislike {
-    public ArrayList<String> memberDislike(String member, InputValidator validator) {
+    public ArrayList<String> memberDislike(InputValidator validator, String member) {
         new SystemOutput().printInputMemberDislike(member);
         String dislike = Console.readLine();
         isCorrect(validator, dislike, member);
@@ -19,7 +19,7 @@ public class InputMemberDislike {
             validator.validateDislike(dislike);
         } catch(Exception e) {
             System.out.println(e.getMessage());
-            memberDislike(member, validator);
+            memberDislike(validator, member);
         }
     }
 
