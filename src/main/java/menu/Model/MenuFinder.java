@@ -5,15 +5,15 @@ import menu.enums.MenuCategories;
 import java.util.List;
 
 public class MenuFinder {
-    public boolean findMenu(String menu) {
+    public void findMenu(String menu) {
         MenuCategories[] categories = MenuCategories.values();//일식, 한식, 중식 ...
         for (int i = 0; i < categories.length; i++) {
             System.out.println(categories[i]);
             if(menuContains(categories[i], menu)) {
-                return true;
+                return;
             }
         }
-        return false;
+        throw new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다.");
     }
 
     private boolean menuContains(MenuCategories menuCategories, String menu) {
