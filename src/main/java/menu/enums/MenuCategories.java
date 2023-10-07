@@ -1,7 +1,6 @@
 package menu.enums;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
 //1이면 일식, 2면 한식, 3이면 중식, 4면 아시안, 5면 양식을 추천해야 한다.
 public enum MenuCategories {
@@ -15,8 +14,12 @@ public enum MenuCategories {
         this.category = category;
     }
 
-    public List<Enum<?>> getCategory() {
-        return Arrays.asList(category);
+    public ArrayList<String> getCategory() {
+        ArrayList<String> arr = new ArrayList<>();
+        for (int i = 0; i < category.length; i++) {
+            arr.add(category[i].toString());
+        }
+        return arr;
     }
 
 
