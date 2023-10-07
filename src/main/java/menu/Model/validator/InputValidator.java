@@ -1,5 +1,7 @@
 package menu.Model.validator;
 
+import menu.Model.MenuFinder;
+
 public class InputValidator {
     public void validateMemberName(String input) {
         permittedInputValidator(input);
@@ -23,7 +25,11 @@ public class InputValidator {
         }
     }
 
-    public void validateMemberDislike(String dislike) {
+    public void validateDislike(String dislike) {
+        validateMemberDislike(dislike);
+        findFromMenuList(dislike);
+    }
+    private void validateMemberDislike(String dislike) {
         String str = dislike.replace(",", "");
         if (str.matches("[a-zA-Z가-힣,\\s]*")) {
             return;
@@ -31,4 +37,12 @@ public class InputValidator {
         throw new IllegalArgumentException("[ERROR] 허용되지 않은 문자가 포함되어 있습니다.");
     }
 
+    private void findFromMenuList(String dislike) {
+        String[] dislikeList = dislike.split(",");
+        MenuFinder menuFinder = new MenuFinder();
+        for (int i = 0; i < dislikeList.length; i++) {
+            String menu = dislikeList[i].trim();
+            menuFinder.findMenu(menu);
+        }
+    }
 }
