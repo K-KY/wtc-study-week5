@@ -6,7 +6,7 @@ import menu.Model.validator.InputValidator;
 
 import java.util.ArrayList;
 
-public class UserInput {
+public class InputMembers {
     SystemOutput systemOutput = new SystemOutput();
     public ArrayList<String> inputMembers(InputValidator validator) {
         systemOutput.printInputMember();
