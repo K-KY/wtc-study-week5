@@ -59,7 +59,7 @@ public class InputValidator {
     }
 
     private void validateDislikeLength(String dislike) {
-        if (dislike.split("").length > 2) {
+        if (dislike.split(",").length > 2) {
             throw new IllegalArgumentException("[ERROR] 못먹는 메뉴는 최대 2개까지 입력 가능합니다");
         }
     }
