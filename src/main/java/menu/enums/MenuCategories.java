@@ -14,7 +14,7 @@ public enum MenuCategories {
         this.category = category;
     }
 
-    public ArrayList<String> getCategory() {
+    public ArrayList<String> getMenus() {
         ArrayList<String> arr = new ArrayList<>();
         for (int i = 0; i < category.length; i++) {
             arr.add(category[i].toString());
