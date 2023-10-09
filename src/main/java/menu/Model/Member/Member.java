@@ -14,6 +14,7 @@ public class Member {
     }
 
     public void addMenu(List<String> menu) {
+        menu = Randoms.shuffle(menu);
         while(hasEqualMenu(menu.get(0)) && hasDislike(menu.get(0))) {
             menu = Randoms.shuffle(menu);
         }

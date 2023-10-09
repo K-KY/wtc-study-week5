@@ -1,6 +1,5 @@
 package menu.Controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import menu.Model.Member.GenerateMember;
 import menu.Model.Member.Member;
 import menu.Model.menurecommend.CategorySelector;
@@ -43,21 +42,21 @@ public class MenuSelector {
 
     private void menuSelect(LinkedHashMap<String, Member> memberMap) {
         ArrayList<MenuCategories> arr = new ArrayList<>(CategorySelector.getInstance());
-        for (int i = 1; i < Week.values().length; i++) {
+        for (int i = 1; i < Week.length(); i++) {
+            List<String> menu = getNextMenu(arr);
             memberMap.forEach((k, v) -> {
-                List<String> menu = Randoms.shuffle(getMenus(arr.get(0)));
                 v.addMenu(menu);
             });
-            arr.remove(0);
         }
+    }
+    private List<String> getNextMenu(ArrayList<MenuCategories> menuCategories) {
+        MenuCategories nextCategory = menuCategories.remove(0);
+        return nextCategory.getMenus();
     }
 
     private void menuResult(LinkedHashMap<String, Member> memberMap) {
         ResultOutput resultOutput = new ResultOutput();
         resultOutput.printResult(memberMap);
-    }
-    private List<String> getMenus(MenuCategories menuCategories) {
-        return menuCategories.getMenus();
     }
 
 }
