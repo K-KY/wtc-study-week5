@@ -45,7 +45,7 @@ public class MenuSelector {
         ArrayList<MenuCategories> arr = new ArrayList<>(CategorySelector.getInstance());
         for (int i = 1; i < Week.values().length; i++) {
             memberMap.forEach((k, v) -> {
-                List<String> menu = Randoms.shuffle(arr.get(0).getMenus());
+                List<String> menu = Randoms.shuffle(getMenus(arr.get(0)));
                 v.addMenu(menu);
             });
             arr.remove(0);
@@ -55,6 +55,9 @@ public class MenuSelector {
     private void menuResult(LinkedHashMap<String, Member> memberMap) {
         ResultOutput resultOutput = new ResultOutput();
         resultOutput.printResult(memberMap);
+    }
+    private List<String> getMenus(MenuCategories menuCategories) {
+        return menuCategories.getMenus();
     }
 
 }
